@@ -1,0 +1,54 @@
+{
+	"name": "Node.js",
+	"image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:16",
+	"mounts": [
+		// "source=${localWorkspaceFolder}/../cardano-buoy,target=/workspaces/cardano-buoy,type=bind,consistency=cached",
+		// Custom cardano-serialization-lib-browser that supports minting with Plutus scripts (repo cardano-serialization-lib-browser#evgenii/mint_builder)
+   ],
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.profiles.linux" : {
+			"bash": {
+				"path": "/bin/bash"
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "bash",
+		"[javascript]": {
+		},
+		"[typescript]": {
+		},
+		"[svelte]": {
+			"editor.defaultFormatter": "svelte.svelte-vscode",
+		},
+		"editor.tabSize": 3,
+		"editor.insertSpaces": true,
+		"editor.formatOnSave": true,
+		"files.eol": "\n",
+		"prettier.requireConfig": true,
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"svelte.svelte-vscode",
+		"bradlc.vscode-tailwindcss",
+		"urbantrout.refactor-css",
+		"heybourn.headwind",
+		"esbenp.prettier-vscode",
+		"formulahendry.auto-rename-tag",
+		"robinbentley.sass-indented",
+		"naumovs.color-highlight",
+		"jock.svg",
+		"ctcuff.font-preview"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm install",
+
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}
